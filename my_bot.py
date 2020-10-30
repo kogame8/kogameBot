@@ -1,7 +1,5 @@
 import asyncio
 import discord
-import re
-import requests
 from urllib import parse
 from discord.ext import commands
 import os
@@ -10,7 +8,7 @@ from urllib.request import HTTPError
 from urllib.request import urlopen
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
-from urllib.parse import quote
+import requests
 import warnings
 import unicodedata
 import json
