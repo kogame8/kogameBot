@@ -1,4 +1,0 @@
-discord.py == 1.4.1
-asyncio == 3.4.3
-requests == 2.42.0
-BeautifulSoup == 4.9.3
