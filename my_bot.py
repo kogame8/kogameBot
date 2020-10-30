@@ -33,12 +33,6 @@ async def on_message(message):
     content = message.content 
     guild = message.guild 
     author = message.author 
-    channel = message.channel     
-    bad = ['ㅅㅂ','시발','씨발']
-    for i in bad:
-           if i in content:
-               await message.channel.send("바른말 고운말을 사용합시다.")
-               await message.delete()
     if content.startswith("!확인"):
         embed=discord.Embed(title=f"서버 확인", description=f"확인용 embed", color=0xf3bb76)
         embed.add_field(name=f"서버이름", value=message.guild,inline=False)
@@ -128,41 +122,6 @@ async def on_message(message):
                     embed.add_field(name="딜량", value=statsList[3] , inline=True)       
                     await message.channel.send(embed=embed)    
     await client.process_commands(message)
-           
-#@client.event #서버 접속시 메세지
-async def on_member_join(member):
-    await member.guild.get_channel(758205568858456066).send(member.mention + "님이 새롭게 접속했습니다. 환영해주세요!")
-    await member.send('```코겜님이 만든 봇이 서버에서 활동중입니다\n현재 상태 : Test```')
-
-#@client.event #서버 퇴장시 메세지
-async def on_member_remove(member):
-    await member.guild.get_channel(758205568858456066).send(member.mention + "님이 서버에서 퇴장했습니다....")
-
-#명령어 부분
-@client.command(name='입장')
-async def voice_join(ctx):
-    if(ctx.author.voice==None):
-        await ctx.send('채널에 입장후 명령어를 입력해주세요')
-    else:
-        channel=ctx.author.voice.channel
-        if(ctx.voice_client==None):
-            await channel.connect()
-        else:
-            await ctx.send('봇이 이미 접속중이에요')  
-
-@client.command(name='퇴장')
-async def voice_leave(ctx):
-    if(ctx.voice_client==None):
-       await ctx.send('봇이 접속중이 아니라 나가질 못해요')
-    else:
-        await ctx.voice_client.disconnect()
-
-@client.command(name='청소')
-async def _clear(ctx, *, amount=0):
-    if(1 < amount < 100):
-        await ctx.channel.purge(limit=amount)
-    else:
-        await ctx.send("2~99위 숫자를 입력해주세요")
             
 client.run(os.environ[`token`])
 
