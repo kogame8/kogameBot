@@ -4,8 +4,6 @@ import re
 import requests
 from urllib import parse
 from discord.ext import commands
-client = commands.Bot(command_prefix='-')
-
 import os
 from urllib.request import URLError
 from urllib.request import HTTPError
@@ -17,6 +15,7 @@ import warnings
 import unicodedata
 import json
 import time
+client = commands.Bot(command_prefix='-')
 
 #시작 로딩
 @client.event
