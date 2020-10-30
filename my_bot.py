@@ -3,6 +3,7 @@ import discord
 from urllib import parse
 from discord.ext import commands
 import os
+import re
 from urllib.request import URLError
 from urllib.request import HTTPError
 from urllib.request import urlopen
