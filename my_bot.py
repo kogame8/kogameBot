@@ -18,7 +18,7 @@ import unicodedata
 import json
 import time
 
-token = "NzU3NzY4MTc2MzQyOTI1Mzcy.X2lMmw.CpIrNHTrT1DBnre4xMrbFY-VO64"
+access_token = os.environ["BOT_TOKEN"]
 
 #시작 로딩
 @client.event
@@ -166,4 +166,4 @@ async def _clear(ctx, *, amount=0):
     else:
         await ctx.send("2~99위 숫자를 입력해주세요")
             
-client.run(token)
+client.run(access_token)
